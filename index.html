@@ -1,0 +1,390 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dampak Sosial Informatika — Belajar untuk Siswa SMA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7c3aed; --accent-2:#06b6d4; --glass: rgba(255,255,255,0.04);
+      --max-w:1100px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#061221 0%, #071325 50%, #07172a 100%); color:#e6eef6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .container{max-width:var(--max-w);margin:40px auto;padding:28px}/* Header */
+header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .mark{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:white;box-shadow:0 8px 30px rgba(124,58,237,0.18);}
+nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+nav a:hover{color:#fff}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:center}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),var(--glass));border-radius:14px;padding:20px;box-shadow:0 6px 20px rgba(2,6,23,0.6);backdrop-filter: blur(6px);}
+.hero h1{font-size:30px;margin:0 0 8px}
+.lead{color:var(--muted);margin-bottom:14px}
+.cta-row{display:flex;gap:12px}
+.btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;box-shadow:0 8px 30px rgba(6,182,212,0.08)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+/* Animated device mock */
+.device{position:relative;height:420px;border-radius:16px;overflow:hidden}
+.screen{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:12px}
+.pulse{position:absolute;left:-10%;top:-30%;width:200px;height:200px;border-radius:50%;filter:blur(34px);opacity:0.45;background:linear-gradient(45deg,var(--accent),var(--accent-2));animation:spin 10s linear infinite}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.chip{background:rgba(255,255,255,0.03);padding:10px;border-radius:10px}
+.chip span{display:block;font-weight:700}
+
+/* Sections */
+section{margin-top:26px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);font-weight:700}
+.title{font-weight:700}
+.muted{color:var(--muted)}
+
+/* Cards detail */
+.pos{border-left:4px solid rgba(34,197,94,0.85);padding-left:12px}
+.neg{border-left:4px solid rgba(239,68,68,0.85);padding-left:12px}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(18px);transition:all 600ms cubic-bezier(.2,.9,.2,1)}
+.reveal.show{opacity:1;transform:none}
+
+/* Quiz */
+.quiz{display:flex;flex-direction:column;gap:14px}
+.qcard{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.02));}
+.options{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.opt{padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);cursor:pointer}
+.opt:hover{transform:translateX(6px);transition:all 180ms}
+.opt.selected{background:linear-gradient(90deg,rgba(124,58,237,0.12),rgba(6,182,212,0.06));border-color:rgba(124,58,237,0.4)}
+.result{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+
+/* Footer */
+footer{margin-top:40px;padding:18px;text-align:center;color:var(--muted);font-size:14px}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;}
+  .grid-3{grid-template-columns:1fr}
+  .device{height:320px}
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">SI</div>
+        <div>
+          <div style="font-weight:800">Dampak Sosial<br><span style="font-weight:600;color:var(--muted);font-size:13px">Informatika</span></div>
+        </div>
+      </div>
+      <nav>
+        <a href="#pos">Positif</a>
+        <a href="#neg">Negatif</a>
+        <a href="#solusi">Solusi</a>
+        <a href="#kuis">Kuis</a>
+      </nav>
+    </header><main>
+  <div class="hero">
+    <div class="card">
+      <h1>Belajar Dampak Sosial Informatika</h1>
+      <p class="lead">Materi santai untuk siswa SMA — ringkas, ilustratif, dan lengkap. Pelajari bagaimana teknologi membentuk cara kita hidup, belajar, dan berteman.</p>
+      <div class="cta-row">
+        <button class="btn btn-primary" onclick="scrollToSection('pos')">Mulai Belajar</button>
+        <button class="btn btn-ghost" onclick="scrollToSection('kuis')">Uji Pengetahuan</button>
+      </div>
+
+      <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
+        <div class="chip">
+          <span>Untuk</span>
+          <small class="muted">Siswa SMA — gaya santai</small>
+        </div>
+        <div class="chip">
+          <span>Durasi</span>
+          <small class="muted">Baca 12 menit</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="device card" aria-hidden="true">
+      <div class="pulse" style="opacity:0.9"></div>
+      <div class="screen">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="display:flex;gap:8px;align-items:center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" fill="white" opacity="0.92"/></svg>
+            <strong>Ringkasan Interaktif</strong>
+          </div>
+          <div class="muted">Online</div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:18px">
+          <div class="chip" style="flex:1">
+            <small class="muted">Positif</small>
+            <span style="color: #9ef6e4">Komunikasi</span>
+          </div>
+          <div class="chip" style="flex:1">
+            <small class="muted">Negatif</small>
+            <span style="color:#ffc6c6">Kecanduan</span>
+          </div>
+        </div>
+
+        <div style="margin-top:auto;display:flex;gap:10px;align-items:center">
+          <div style="flex:1">
+            <div style="height:8px;border-radius:99px;background:rgba(255,255,255,0.04);overflow:hidden">
+              <div style="width:72%;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));animation:load 3s infinite alternate;" aria-hidden></div>
+            </div>
+            <small class="muted">Keterlibatan sosial</small>
+          </div>
+          <div style="width:64px;text-align:center;font-size:12px">
+            <div style="font-weight:700">72%</div>
+            <div class="muted">Positif</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <section id="pos" class="reveal">
+    <h2 class="title">Dampak Positif</h2>
+    <p class="muted">Hal-hal baik yang muncul karena informatika jika digunakan dengan benar.</p>
+
+    <div class="grid-3" style="margin-top:12px">
+      <div class="card pos reveal">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div class="icon">💬</div>
+          <div>
+            <div style="font-weight:800">Komunikasi Mudah</div>
+            <div class="muted">Video call, chat, dan forum membuat kita tetap terhubung.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card pos reveal">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div class="icon">🎓</div>
+          <div>
+            <div style="font-weight:800">Akses Pendidikan</div>
+            <div class="muted">Belajar online, tutorial, dan platform kursus membantu proses belajar.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card pos reveal">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div class="icon">💼</div>
+          <div>
+            <div style="font-weight:800">Peluang Kerja</div>
+            <div class="muted">Profesi baru muncul: programmer, content creator, data analyst.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:16px;margin-top:14px;flex-wrap:wrap">
+      <div class="card reveal" style="flex:1;min-width:260px">
+        <h3 style="margin:0 0 8px">Kolaborasi Global</h3>
+        <p class="muted">Tools online memungkinkan proyek dengan teman dari negara lain. Contoh: kontribusi open-source atau pertukaran pelajar secara virtual.</p>
+      </div>
+      <div class="card reveal" style="flex:1;min-width:260px">
+        <h3 style="margin:0 0 8px">Solusi Sosial</h3>
+        <p class="muted">Aplikasi donor, pemetaan bencana, dan platform edukasi bisa membantu masyarakat luas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="neg" class="reveal">
+    <h2 class="title">Dampak Negatif</h2>
+    <p class="muted">Risiko dan efek samping yang perlu kita waspadai.</p>
+
+    <div class="grid-3" style="margin-top:12px">
+      <div class="card neg reveal">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div class="icon">📵</div>
+          <div>
+            <div style="font-weight:800">Kecanduan</div>
+            <div class="muted">Menghabiskan banyak waktu di gadget mengurangi interaksi nyata.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card neg reveal">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div class="icon">🔓</div>
+          <div>
+            <div style="font-weight:800">Bahaya Privasi</div>
+            <div class="muted">Data pribadi bisa bocor jika tidak berhati-hati.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card neg reveal">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div class="icon">📰</div>
+          <div>
+            <div style="font-weight:800">Hoaks</div>
+            <div class="muted">Informasi palsu cepat menyebar jika tidak diverifikasi.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:16px;margin-top:14px;flex-wrap:wrap">
+      <div class="card reveal" style="flex:1;min-width:260px">
+        <h3 style="margin:0 0 8px">Isolasi Sosial</h3>
+        <p class="muted">Koneksi online tidak selalu menggantikan kehangatan silahturahmi langsung.</p>
+      </div>
+      <div class="card reveal" style="flex:1;min-width:260px">
+        <h3 style="margin:0 0 8px">Otomatisasi Pekerjaan</h3>
+        <p class="muted">Beberapa pekerjaan tradisional bisa tergantikan mesin dan algoritma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="solusi" class="reveal">
+    <h2 class="title">Cara Menghadapinya</h2>
+    <p class="muted">Tips praktis untuk menjadi pengguna teknologi yang bijak.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px">
+      <div class="card reveal">
+        <h3 style="margin:0 0 8px">Atur Waktu Online</h3>
+        <p class="muted">Gunakan aplikasi pengatur waktu, buat jadwal belajar dan waktu bebas gadget.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="margin:0 0 8px">Perkuat Keamanan</h3>
+        <p class="muted">Gunakan password kuat, aktifkan verifikasi dua langkah, dan hati-hati dengan link tak dikenal.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="margin:0 0 8px">Cek Fakta</h3>
+        <p class="muted">Biasakan memeriksa sumber saat menemukan berita mengejutkan.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="margin:0 0 8px">Gunakan untuk Kebaikan</h3>
+        <p class="muted">Bagikan hal positif, ikut kampanye sosial, dan bantu teman belajar online.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kuis" class="reveal">
+    <h2 class="title">Kuis Singkat</h2>
+    <p class="muted">Uji pemahamanmu — jawab 5 pertanyaan singkat.</p>
+
+    <div class="card quiz" style="margin-top:12px">
+      <div id="quiz-area"></div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px">
+        <button class="btn btn-ghost" id="prevBtn">Sebelumnya</button>
+        <button class="btn btn-primary" id="nextBtn">Berikutnya</button>
+      </div>
+      <div id="quiz-result" style="margin-top:12px;display:none" class="result"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Dibuat sebagai materi edukasi untuk siswa SMA — bahasanya santai dan mudah dipahami. © 2025
+</footer>
+
+  </div>  <script>
+    /* Scroll helper */
+    function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'})}
+
+    /* Reveal on scroll */
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('show')});
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    /* Simple progress animation */
+    const style = document.createElement('style');
+    style.innerHTML = `@keyframes load{0%{width:10%}100%{width:72%}}`;
+    document.head.appendChild(style);
+
+    /* --- QUIZ DATA --- */
+    const quiz = [
+      {q:"Apa salah satu dampak positif informatika terhadap pendidikan?", opts:["Membuat orang lebih malas keluar rumah","Memberi akses belajar online","Mengurangi jumlah guru"], ans:1},
+      {q:"Apa arti 'hoaks'?", opts:["Berita palsu","Fitur baru aplikasi","Jenis perangkat keras"], ans:0},
+      {q:"Salah satu cara melindungi privasi online ialah...", opts:["Menggunakan password sederhana","Membagikan data ke banyak orang","Mengaktifkan verifikasi dua langkah"], ans:2},
+      {q:"Apa efek negatif dari penggunaan gadget berlebihan?", opts:["Meningkatkan kualitas tidur","Kecanduan dan gangguan fokus","Menambah interaksi sosial di dunia nyata"], ans:1},
+      {q:"Apa sikap terbaik saat menemukan berita mengejutkan di internet?", opts:["Langsung membagikannya","Cek sumber dan verifikasi","Tutup aplikasi saja"], ans:1}
+    ];
+
+    let cur = 0; const answers = Array(quiz.length).fill(null);
+    const quizArea = document.getElementById('quiz-area');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const resultBox = document.getElementById('quiz-result');
+
+    function renderQuestion(i){
+      const item = quiz[i];
+      quizArea.innerHTML = '';
+      const qcard = document.createElement('div'); qcard.className='qcard';
+      const qh = document.createElement('div'); qh.innerHTML = `<strong>Soal ${i+1}.</strong> ${item.q}`;
+      qcard.appendChild(qh);
+
+      const opts = document.createElement('div'); opts.className='options';
+      item.opts.forEach((o,idx)=>{
+        const op = document.createElement('div'); op.className='opt'; op.tabIndex=0; op.innerText = o;
+        if(answers[i] === idx) op.classList.add('selected');
+        op.addEventListener('click', ()=>{
+          answers[i] = idx; updateOptions(opts,i);
+        });
+        op.addEventListener('keydown', (e)=>{ if(e.key==='Enter') { answers[i]=idx; updateOptions(opts,i); }});
+        opts.appendChild(op);
+      });
+
+      qcard.appendChild(opts);
+      quizArea.appendChild(qcard);
+      prevBtn.style.display = i===0? 'none':'inline-block';
+      nextBtn.innerText = i===quiz.length-1? 'Selesai':'Berikutnya';
+    }
+
+    function updateOptions(container,index){
+      Array.from(container.children).forEach((child,i)=>{
+        child.classList.toggle('selected', answers[index]===i);
+      });
+    }
+
+    prevBtn.addEventListener('click', ()=>{ if(cur>0){cur--; renderQuestion(cur);} });
+    nextBtn.addEventListener('click', ()=>{
+      if(cur < quiz.length-1){ cur++; renderQuestion(cur);} else { showResult(); }
+    });
+
+    function showResult(){
+      let score=0; quiz.forEach((item,i)=>{ if(answers[i]===item.ans) score++; });
+      resultBox.style.display='block';
+      resultBox.innerHTML = `<div style="font-weight:800">Skor kamu: ${score} / ${quiz.length}</div>`;
+      let message = '';
+      if(score === quiz.length) message = 'Hebat! Kamu paham banget.';
+      else if(score >= Math.ceil(quiz.length*0.6)) message = 'Bagus — tapi masih bisa lebih baik. Coba review bagian yang belum benar.';
+      else message = 'Ayo belajar lagi — baca ulang bagian Positif/Negatif & Solusi.';
+      resultBox.innerHTML += `<p class="muted" style="margin-top:8px">${message}</p>`;
+      resultBox.innerHTML += `<button class="btn btn-primary" style="margin-top:10px" onclick="restartQuiz()">Coba Lagi</button>`;
+    }
+
+    function restartQuiz(){
+      for(let i=0;i<answers.length;i++)answers[i]=null; cur=0; resultBox.style.display='none'; renderQuestion(0);
+    }
+
+    // init
+    renderQuestion(0);
+
+    // Small accessibility: keyboard shortcuts
+    document.addEventListener('keydown',(e)=>{
+      if(e.key==='ArrowRight') nextBtn.click();
+      if(e.key==='ArrowLeft') prevBtn.click();
+    });
+
+  </script></body>
+</html>
